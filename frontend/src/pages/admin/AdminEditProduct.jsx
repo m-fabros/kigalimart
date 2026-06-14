@@ -47,7 +47,7 @@ const AdminEditProduct = () => {
     const fetchProduct = async () => {
       setFetching(true);
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/products/${id}`);
+        const { data } = await axios.get(`https://kigalimart-backend.onrender.com/api/products/${id}`);
         setForm({
           name: data.name,
           description: data.description,
@@ -76,7 +76,7 @@ const AdminEditProduct = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.put(`http://localhost:5000/api/products/${id}`, {
+      await axios.put(`https://kigalimart-backend.onrender.com/api/products/${id}`, {
         ...form,
         price: Number(form.price),
         stock: Number(form.stock),

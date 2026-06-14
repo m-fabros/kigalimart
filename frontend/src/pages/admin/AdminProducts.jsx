@@ -44,7 +44,7 @@ const AdminProducts = () => {
       setLoading(true);
       setError(null);
       try {
-        const { data } = await axios.get('http://localhost:5000/api/products');
+        const { data } = await axios.get('https://kigalimart-backend.onrender.com/api/products');
         setProducts(Array.isArray(data) ? data : []);
       } catch {
         setError('Unable to load products');
@@ -58,7 +58,7 @@ const AdminProducts = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
+      await axios.delete(`https://kigalimart-backend.onrender.com/api/products/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success('Product removed');
@@ -71,7 +71,7 @@ const AdminProducts = () => {
   const handleToggleStock = async (id, currentStock) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/products/${id}`,
+        `https://kigalimart-backend.onrender.com/api/products/${id}`,
         { stock: currentStock > 0 ? 0 : 50 },
         { headers: { Authorization: `Bearer ${token}` } }
       );

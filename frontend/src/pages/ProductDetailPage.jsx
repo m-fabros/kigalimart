@@ -19,7 +19,7 @@ const ProductDetailPage = () => {
       setError(null);
 
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/products/${id}`);
+        const { data } = await axios.get(`https://kigalimart-backend.onrender.com/api/products/${id}`);
         setProduct(data);
         setQuantity(data?.stock > 0 ? 1 : 0);
       } catch (err) {

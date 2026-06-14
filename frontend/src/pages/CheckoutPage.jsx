@@ -51,7 +51,7 @@ const CheckoutPage = () => {
         totalPrice,
       };
 
-      const { data } = await axios.post('http://localhost:5000/api/orders', orderPayload);
+      const { data } = await axios.post('https://kigalimart-backend.onrender.com/api/orders', orderPayload);
       clearCart();
       navigate(`/order-confirmation/${data._id || data.id || ''}`);
     } catch (err) {

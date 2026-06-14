@@ -34,7 +34,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/products');
+        const { data } = await axios.get('https://kigalimart-backend.onrender.com/api/products');
         setProducts(data || []);
       } catch (err) {
         setError('Unable to load featured products. Please try again later.');

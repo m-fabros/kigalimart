@@ -59,8 +59,8 @@ const AdminDashboard = () => {
       setError(null);
       try {
         const [productRes, orderRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/products'),
-          axios.get('http://localhost:5000/api/orders', {
+          axios.get('https://kigalimart-backend.onrender.com/api/products'),
+          axios.get('https://kigalimart-backend.onrender.com/api/orders', {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);

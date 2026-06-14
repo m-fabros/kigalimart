@@ -15,7 +15,7 @@ const OrderConfirmationPage = () => {
       setError(null);
 
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/orders/${id}`);
+        const { data } = await axios.get(`https://kigalimart-backend.onrender.com/api/orders/${id}`);
         setOrder(data);
       } catch (err) {
         setError('Unable to load order details. Please try again later.');

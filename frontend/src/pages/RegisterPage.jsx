@@ -27,7 +27,7 @@ const RegisterPage = () => {
     setLoading(true);
 
     try {
-      const { data } = await axios.post('http://localhost:5000/api/auth/register', {
+      const { data } = await axios.post('https://kigalimart-backend.onrender.com/api/auth/register', {
         name: fullName,
         email,
         password,

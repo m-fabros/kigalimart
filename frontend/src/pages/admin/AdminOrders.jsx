@@ -49,7 +49,7 @@ const AdminOrders = () => {
       setLoading(true);
       setError(null);
       try {
-        const { data } = await axios.get('http://localhost:5000/api/orders', {
+        const { data } = await axios.get('https://kigalimart-backend.onrender.com/api/orders', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrders(Array.isArray(data) ? data : []);
@@ -65,7 +65,7 @@ const AdminOrders = () => {
   const handleStatusChange = async (orderId, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/orders/${orderId}`,
+        `https://kigalimart-backend.onrender.com/api/orders/${orderId}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -79,7 +79,7 @@ const AdminOrders = () => {
   const handleDelete = async (orderId) => {
     if (!window.confirm('Are you sure you want to delete this order?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/orders/${orderId}`, {
+      await axios.delete(`https://kigalimart-backend.onrender.com/api/orders/${orderId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success('Order deleted!');

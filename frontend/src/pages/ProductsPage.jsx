@@ -31,7 +31,7 @@ const ProductsPage = () => {
         if (search) params.search = search;
         if (sort) params.sort = sort;
 
-        const { data } = await axios.get('http://localhost:5000/api/products', { params });
+        const { data } = await axios.get('https://kigalimart-backend.onrender.com/api/products', { params });
         setProducts(Array.isArray(data) ? data : []);
       } catch (err) {
         setError('Unable to load products. Please try again later.');

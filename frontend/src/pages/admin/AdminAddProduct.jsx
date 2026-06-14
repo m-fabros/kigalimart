@@ -49,7 +49,7 @@ const AdminAddProduct = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/products', {
+      await axios.post('https://kigalimart-backend.onrender.com/api/products', {
         ...form,
         price: Number(form.price),
         stock: Number(form.stock),
