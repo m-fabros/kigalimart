@@ -18,6 +18,12 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { cartCount } = useCart();
 
+  let user = null;
+  try {
+    const stored = window.localStorage.getItem('kigalimart_user');
+    if (stored) user = JSON.parse(stored);
+  } catch { user = null; }
+
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     const trimmedQuery = query.trim();
@@ -33,6 +39,11 @@ const Navbar = () => {
     params.set('category', value);
     navigate(`/products?${params.toString()}`);
     setMobileOpen(false);
+  };
+
+  const handleSignOut = () => {
+    window.localStorage.removeItem('kigalimart_user');
+    window.location.href = '/';
   };
 
   return (
@@ -71,11 +82,42 @@ const Navbar = () => {
           </form>
 
           <div className="flex items-center gap-3">
-            <Link to="/login" className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/20">
-              <User size={18} className="mr-2" />
-              Account
-            </Link>
-            <Link to="/cart" className="relative inline-flex items-center rounded-full border border-white/30 bg-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/20">
+            {user ? (
+              <div className="relative group">
+                <button className="inline-flex items-center justify-center rounded-full border-2 border-white bg-white/20 p-2 text-white transition hover:bg-white/30">
+                  <User size={18} />
+                </button>
+                <div className="absolute right-0 top-full mt-2 w-48 rounded-xl bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                  <div className="p-2">
+                    <p className="px-3 py-2 text-xs font-semibold text-slate-900 border-b border-slate-100">
+                      {user.name}
+                    </p>
+                    <p className="px-3 py-1 text-xs text-slate-400">{user.email}</p>
+                    <div className="border-t border-slate-100 mt-1 pt-1">
+                      <button
+                        onClick={handleSignOut}
+                        className="flex w-full items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg"
+                      >
+                        Sign Out
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/20"
+              >
+                <User size={18} className="mr-2" />
+                Account
+              </Link>
+            )}
+
+            <Link
+              to="/cart"
+              className="relative inline-flex items-center rounded-full border border-white/30 bg-white/10 px-3 py-2 text-sm text-white transition hover:bg-white/20"
+            >
               <ShoppingCart size={18} />
               {cartCount > 0 && (
                 <span className="absolute -right-2 -top-2 rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-semibold text-white">
@@ -83,6 +125,7 @@ const Navbar = () => {
                 </span>
               )}
             </Link>
+
             <button
               type="button"
               onClick={() => setMobileOpen((open) => !open)}
