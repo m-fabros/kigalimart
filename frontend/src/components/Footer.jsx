@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
     <footer className="w-full">
@@ -10,7 +12,7 @@ const Footer = () => {
           <div>
             <h3 className="mb-4 text-lg font-semibold text-slate-900">About KigaliMart</h3>
             <p className="text-sm leading-7 text-slate-600">
-              KigaliMart is Rwanda’s trusted online marketplace, offering fast delivery, great
+              KigaliMart is Rwanda's trusted online marketplace, offering fast delivery, great
               value, and a wide selection of products for every home.
             </p>
           </div>
@@ -19,29 +21,29 @@ const Footer = () => {
             <h3 className="mb-4 text-lg font-semibold text-slate-900">Shop</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/products?category=Electronics" className="transition hover:text-red-600">
+                <Link to="/products?category=Electronics" className="transition hover:text-red-600">
                   Electronics
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/products?category=Fashion" className="transition hover:text-red-600">
+                <Link to="/products?category=Fashion" className="transition hover:text-red-600">
                   Fashion
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/products?category=Home" className="transition hover:text-red-600">
+                <Link to="/products?category=Home" className="transition hover:text-red-600">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/products?category=Grocery" className="transition hover:text-red-600">
+                <Link to="/products?category=Grocery" className="transition hover:text-red-600">
                   Grocery
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/products?category=Beauty" className="transition hover:text-red-600">
+                <Link to="/products?category=Beauty" className="transition hover:text-red-600">
                   Beauty
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -50,24 +52,24 @@ const Footer = () => {
             <h3 className="mb-4 text-lg font-semibold text-slate-900">Customer Service</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="transition hover:text-red-600">
-                  FAQ
-                </a>
+                <Link to="/about" className="transition hover:text-red-600">
+                  About Us
+                </Link>
               </li>
               <li>
-                <a href="#" className="transition hover:text-red-600">
-                  Returns
-                </a>
-              </li>
-              <li>
-                <a href="#" className="transition hover:text-red-600">
-                  Track Order
-                </a>
-              </li>
-              <li>
-                <a href="#" className="transition hover:text-red-600">
+                <Link to="/contact" className="transition hover:text-red-600">
                   Contact Us
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link to="/products" className="transition hover:text-red-600">
+                  All Products
+                </Link>
+              </li>
+              <li>
+                <Link to="/cart" className="transition hover:text-red-600">
+                  My Cart
+                </Link>
               </li>
             </ul>
           </div>

@@ -11,6 +11,8 @@ import CheckoutPage from './pages/CheckoutPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import ContactPage from './pages/ContactPage';
+import AboutPage from './pages/AboutPage';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProducts from './pages/admin/AdminProducts';
@@ -49,6 +51,8 @@ function App() {
         <Route path="/order-confirmation/:id" element={<PublicLayout><OrderConfirmationPage /></PublicLayout>} />
         <Route path="/login" element={<PublicLayout><LoginPage /></PublicLayout>} />
         <Route path="/register" element={<PublicLayout><RegisterPage /></PublicLayout>} />
+        <Route path="/contact" element={<PublicLayout><ContactPage /></PublicLayout>} />
+        <Route path="/about" element={<PublicLayout><AboutPage /></PublicLayout>} />
       </Routes>
     </CartProvider>
   );
